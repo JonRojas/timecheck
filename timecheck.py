@@ -43,6 +43,11 @@ print(str(c) + ": " + printDate(startDate))
 # handle starting on a Wed/Thursday
 if startDay == (2 or 3):
     nextInc = 5
+# handle starting on a Saturday 
+elif startDay == 5:
+    total = 14
+    nextInc = 7
+    n = duration
 
 # trigger the main loop alternating between 2 and 5
 nextDate = startDate
