@@ -1,13 +1,14 @@
 import datetime
-daysOfWeek = {0: "Monday", 1: "Tuesday", 2: "Wednesday", 3: "Thursday", 4: "Friday", 5: "Saturday", 6: "Sunday"}
+daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 holidays = ['2/15/16', '5/28/16', '05/30/16', '7/2/16', '7/4/16', '9/3/16', '9/5/16', '11/24/16', '11/25/16', '11/26/16', '12/24/16', '12/25/16', '12/26/16', '12/31/16']
+
 # turn list of holidays into list of datetime objects, parsedHolidays
 parsedHolidays = []
 for d in holidays:
-    d = datetime.datetime.strptime(d, "%m/%d/%y")
-    parsedHolidays.append(d)
+    e = datetime.datetime.strptime(d, "%m/%d/%y")
+    parsedHolidays.append(e)
 
-# making it easier/cleaner to print datetime objects 
+# making it easier/cleaner to print datetime objects
 def printDate(date):
     return date.strftime('%m/%d/%y')
 
@@ -49,7 +50,7 @@ print(str(c) + ": " + printDate(startDate))
 # handle starting on a Wed/Thursday
 if startDay == (2 or 3):
     nextInc = 5
-# handle starting on a Saturday 
+# handle starting on a Saturday
 elif startDay == 5:
     total = 14
     nextInc = 7
@@ -57,7 +58,7 @@ elif startDay == 5:
 
 # trigger the main loop alternating between 2 and 5
 nextDate = startDate
-while c < (n):
+while c < n:
     nextDate = nextDate + datetime.timedelta(days=nextInc)
     if nextDate in parsedHolidays:
         print("HOLIDAY: " + printDate(nextDate))
